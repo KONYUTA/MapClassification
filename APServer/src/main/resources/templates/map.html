@@ -1,0 +1,54 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>map</title>
+    <link rel="stylesheet" th:href="@{/css/leaflet.css}"/>
+    <script th:src="@{/js/leaflet.js}"></script>
+	<style>
+		html, body {
+			height: 100%;
+			margin: 0;
+		}
+		.leaflet-container {
+			height: 400px;
+			width: 400px;
+			max-width: 400%;
+			max-height: 400%;
+		}
+        .leaflet-right {
+            right: 0;
+            display: none;
+        }
+        .leaflet-control-zoom {
+            display: none;
+        }
+	</style>
+</head>
+<body>
+<!-- <div>
+    リクエストの例は以下の通り。クエリ部分にx座標とy座標を指定
+    http://localhost:8080/map?x=36.704558&y=137.096484
+</div> -->
+<div id="map" style="width: 400px; height: 400px;"></div>
+<div>x座標: <strong id="x" th:text="${x}"></strong></div>
+<div>y座標: <strong id="y" th:text="${y}"></strong></div>
+
+<script>
+    var x = document.getElementById('x').innerHTML;
+    var y = document.getElementById('y').innerHTML;
+	var map = L.map('map').setView([x, y], 20);
+
+	var tiles = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+		maxZoom: 19,
+		attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+	}).addTo(map);
+
+</script>
+
+
+
+</body>
+</html>
