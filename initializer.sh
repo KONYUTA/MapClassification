@@ -27,8 +27,8 @@ mkdir data/datasets/road_linear/0
 mkdir data/datasets/road_linear/1
 mkdir data/datasets/road_linear/2
 mkdir data/datasets/road_linear/3
-mkdir data/datasets/road_linear/0
-mkdir data/datasets/road_linear/0
+mkdir data/datasets/road_linear/4
+mkdir data/datasets/road_linear/5
 mkdir data/datasets/road_linear/6
 mkdir data/datasets/road_linear/7
 mkdir data/datasets/road_linear/8
