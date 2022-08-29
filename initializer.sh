@@ -21,15 +21,15 @@ mkdir data/datasets/road_shape/13
 mkdir data/datasets/road_shape/14
 mkdir data/datasets/road_shape/21
 #2
-#road_liner
-mkdir data/datasets/road_liner
-mkdir data/datasets/road_liner/0
-mkdir data/datasets/road_liner/1
-mkdir data/datasets/road_liner/2
-mkdir data/datasets/road_liner/3
-mkdir data/datasets/road_liner/0
-mkdir data/datasets/road_liner/0
-mkdir data/datasets/road_liner/6
-mkdir data/datasets/road_liner/7
-mkdir data/datasets/road_liner/8
-mkdir data/datasets/road_liner/9
+#road_linear
+mkdir data/datasets/road_linear
+mkdir data/datasets/road_linear/0
+mkdir data/datasets/road_linear/1
+mkdir data/datasets/road_linear/2
+mkdir data/datasets/road_linear/3
+mkdir data/datasets/road_linear/0
+mkdir data/datasets/road_linear/0
+mkdir data/datasets/road_linear/6
+mkdir data/datasets/road_linear/7
+mkdir data/datasets/road_linear/8
+mkdir data/datasets/road_linear/9

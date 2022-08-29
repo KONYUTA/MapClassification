@@ -11,11 +11,11 @@ public class MakeDataset{
         //CoordDouble jiko = new CoordDouble("../data/jinshin_zahyou_short.csv", col_nums);
         //jiko.readData(",");
         //jiko.show();
-        Col target = new Col("../data/line_short.txt",0);
+        Col target = new Col("../data/targets/road_linear.txt",0);
         target.readData(" ");
         for(int i=0; i<target.coords.size();i++){
             Path original_path= Paths.get("../data/image/"+(i+1)+".png");
-            Path dataset_path= Paths.get("../data/datasets/road_shape/"+target.coords.get(i)+"/"+(i+1)+".png");
+            Path dataset_path= Paths.get("../data/datasets/road_linear/"+target.coords.get(i)+"/"+(i+1)+".png");
             try{
                 Files.copy(original_path, dataset_path);
             }catch(IOException e){
