@@ -7,7 +7,7 @@ import chromedriver_binary
 
 print('地図の収集をはじめます(´･ω･`)\n')
 index = 1
-with open('../data/jinshin_zahyou_short.csv') as f_in:
+with open('../data/jinshin_zahyou.csv') as f_in:
     for line in f_in:
         coord = line.split(',')
         # File Name
@@ -30,7 +30,19 @@ with open('../data/jinshin_zahyou_short.csv') as f_in:
         # set window size
         driver.set_window_size(900,900)
         driver.get(url)
-        time.sleep(3)
+#        time.sleep(3)
+        print('　　　　　　　　　　　　　　　　　ﾉ')
+        time.sleep(0.5)
+        print('　　　　　　　　　　彡　ノ')
+        time.sleep(0.5)
+        print('　　　　　　　　ノ')
+        time.sleep(0.5)
+        print('　　　　　ﾉノ　　　ミ')
+        time.sleep(0.5)
+        print('　　　〆⌒ ヽ彡')
+        time.sleep(0.5)
+        print('　　　(´・ω・`)')
+        time.sleep(0.5)
 
         # Get Screen Shot
         png = driver.find_element_by_id('map').screenshot_as_png
@@ -40,4 +52,4 @@ with open('../data/jinshin_zahyou_short.csv') as f_in:
         driver.quit()
         print(str(index)+'番目の地点周辺マップを保存しましたよ(´・ω・)')
         index+=1
-print('(´・ω・)(´･ω･`)(´・ω・)(´・ω・)'\n終わりますよ(´・ω・)')
+print('(´・ω・)(´･ω･`)(´・ω・)(´・ω・)\n終わりますよ(´・ω・)')
