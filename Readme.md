@@ -98,3 +98,15 @@
    ```
 
 7. 終わるまで放置。終わったら結果は[data/result/result.txt]に保存される。
+
+## APPについて
+
+appフォルダには下記のプログラムが入っている。このうちimage_collctionとappについては、事前にAPサーバおよびMAPサーバを立ち上げておく必要がある。
+
+| app名                | 説明                               | 実行時のコマンド            |
+| -------------------- | ---------------------------------- | --------------------------- |
+| image_collectiomn.py | 地図画像を収集する                 | python3 image_collection.py |
+| MakeDataset          | 集めた画像からデータセットを作る   | java MakeDataset            |
+| training.py          | データセットから学習する           | python3 training.py         |
+| app.py               | 学習結果を用いて事故地点を分類する | python3 app.py              |
+
