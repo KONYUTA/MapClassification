@@ -1,35 +1,50 @@
 #/bin/zsh
+set -e
+set -x
 
-#pip3 install selenium==3.141.0
-#pip3 install chromedriver-binary==104.0.5112.79.0
-mkdir data/image
-mkdir data/model
+mkdir ./data/image
+mkdir ./data/model
+mkdir ./MAPServer
 
-##########################//
-#dirctories for datasets#//
-########################//
+##############################//
+#target installation		#//
+############################//
+pip install selenium==3.141.0
+pip install chromedriver-binary==104.0.5112.79.0
+
+##############################//
+#dirctories for datasets	#//
+############################//
 mkdir data/datasets
-#1
-#road_shape
-mkdir data/datasets/road_shape
-mkdir data/datasets/road_shape/0
-mkdir data/datasets/road_shape/1
-mkdir data/datasets/road_shape/7
-mkdir data/datasets/road_shape/11
-mkdir data/datasets/road_shape/12
-mkdir data/datasets/road_shape/13
-mkdir data/datasets/road_shape/14
-mkdir data/datasets/road_shape/21
+#1. road_shape
+road_shape_path[1]="./data/datasets/road_shape"
+road_shape_path+="./data/datasets/road_shape/0"
+road_shape_path+="./data/datasets/road_shape/1"
+road_shape_path+="./data/datasets/road_shape/7"
+road_shape_path+="./data/datasets/road_shape/11"
+road_shape_path+="./data/datasets/road_shape/12"
+road_shape_path+="./data/datasets/road_shape/13"
+road_shape_path+="./data/datasets/road_shape/14"
+road_shape_path+="./data/datasets/road_shape/21"
+for dir in $road_shape_path;do
+	mkdir dir
+done
 #2
 #road_linear
-mkdir data/datasets/road_linear
-mkdir data/datasets/road_linear/0
-mkdir data/datasets/road_linear/1
-mkdir data/datasets/road_linear/2
-mkdir data/datasets/road_linear/3
-mkdir data/datasets/road_linear/4
-mkdir data/datasets/road_linear/5
-mkdir data/datasets/road_linear/6
-mkdir data/datasets/road_linear/7
-mkdir data/datasets/road_linear/8
-mkdir data/datasets/road_linear/9
+road_linear_path[1]="./data/datasets/road_shape"
+road_linear_path+=road_linear_path[1]+"0"
+road_linear_path+=road_linear_path[1]+"1"
+road_linear_path+=road_linear_path[1]+"2"
+road_linear_path+=road_linear_path[1]+"3"
+road_linear_path+=road_linear_path[1]+"4"
+road_linear_path+=road_linear_path[1]+"5"
+road_linear_path+=road_linear_path[1]+"6"
+road_linear_path+=road_linear_path[1]+"7"
+road_linear_path+=road_linear_path[1]+"8"
+road_linear_path+=road_linear_path[1]+"9"
+for dir in $road_linear_path;do
+	mkdir dir
+done
+
+set +x
+echo 'done(´・ω・)!!'

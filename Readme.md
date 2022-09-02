@@ -13,6 +13,9 @@
 | Shell:   | zsh            |
 | java:    | version 11 ~   |
 | Python3: |                |
+| Docker   |                |
+|          |                |
+|          |                |
 
 ## 2. 構成
 
@@ -28,19 +31,21 @@
 2. **APサーバ**
 
    Java/SpringBootを用いて構築。Appからのhttpsリクエストに応じたHTML文書を送信する。
-   SpringBootのデフォルト設定である8080ポートを用いる。
+   ~~SpringBootのデフォルト設定である8080ポートを用いる。~~Mapサーバと競合しないよう8090ポートを用いる。
 
    
 
 3. **地図タイル用サーバ(以下Mapサーバ)**
 
-   OSSであるTileServer_GLを用いる。
+   OSSであるTileServer_GLをDockerで動かす。
 
    APサーバからのレスポンスを受け取ったAppはHTML文書内に挿入されたスクリプトを基にMapサーバにアクセスする
 
 ## 3. 使用方法
 
-※Appの裏でサーバを二つ動かすので、ターミナル上で3つほどscreenを起動しておくこと。[tmux](https://github.com/tmux/tmux)かscreenコマンドを使うと良い。~~マルチスクリーンの扱いに慣れていない者向けにサーバのデーモン化も考えたが、プロセスのkillを忘れると無駄にリソースを食うため安全のためやめておいた。~~
+※7番以降はプロセスを3つ動かすので、ターミナル上で3つほどscreenを起動しておくこと。[tmux](https://github.com/tmux/tmux)かscreenコマンドを使うと良い。~~マルチスクリーンの扱いに慣れていない者向けにサーバのデーモン化も考えたが、プロセスのkillを忘れると無駄にリソースを食うため安全のためやめておいた。~~
+
+1. Python3やDockerが入っていなければインストールし、立ち上げておく
 
 1. [こちら](https://github.com/KONYUTA/MapClassification.git)にアクセスして本システムをDLする(最初だけ)
 
@@ -48,6 +53,16 @@
    #または以下のコマンド
    $ git clone https://github.com/KONYUTA/MapClassification.git
    ```
+
+2. [maptilerのサイト](https://data.maptiler.com/downloads/planet/)から「Japan」の地図データをDLしてMAPserverディレクトリに配置する(最初だけ)
+
+4. 下記のコマンドを実行後、[https://localhost:8080]にアクセスして適当にSTYLEをインストールする(終わったらコントロール+Cでkillしておくこと)
+
+   ```bash
+   $ docker run --rm -it -v $(pwd):/data -p 8080:80 klokantech/openmaptiles-server
+   ```
+
+   
 
 2. 初期設定シェルスクリプトを実行する(最初だけ)
 
@@ -61,15 +76,25 @@
    - 座標データ(コンマ区切りテキスト形式)[coord.txt]
    - 学習済みモデル[model.h5]
 
-4. APサーバを起動する
+4. APサーバを起動する(手順10まで完了したらCtrl+Cで終了)
 
    ```bash
    $ cd APServer
    $ ./mvnw spring-boot:run
    ```
 
-5. Mapサーバを起動する
+8. Mapサーバを起動する(手順10まで完了したらCtrl+Cで終了)
 
-6. Appを起動する
+   ```bash
+   $ cd MAPServer
+   $ docker run --rm -it -v $(pwd):/data -p 8080:80 klokantech/openmaptiles-server
+   ```
 
-7. 終わるまで放置。終わったら[data/result/result.txt]に保存される。
+9. Appを起動する
+
+   ```bash
+   $cd app
+   #pythonで目的のものを実行
+   ```
+
+7. 終わるまで放置。終わったら結果は[data/result/result.txt]に保存される。
