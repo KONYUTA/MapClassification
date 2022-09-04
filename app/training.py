@@ -8,7 +8,7 @@ from keras.applications.vgg16 import VGG16
 from keras.models import Sequential
 from keras.models import model_from_json
 from keras.models import Model
-from keras.layers import Input, Activation, merge, Dense, Flatten, Dropout
+from keras.layers import Input, Activation, concatenate, Dense, Flatten, Dropout
 from tensorflow.keras.optimizers import Adam
 import pickle
 

@@ -7,10 +7,28 @@ mkdir ./data/model
 mkdir ./MAPServer
 
 ##############################//
-#target installation		#//
+#target installation for app#//
 ############################//
 pip install selenium==3.141.0
 pip install chromedriver-binary==104.0.5112.79.0
+pip3 install --upgrade pip
+pip3 install opencv-python
+pip3 install scikit-learn
+pip3 install tensorflow
+
+##############################//
+#compile java app#//
+############################//
+src_path[1]="./app/kon/lib/coord"
+src_path+="./app/kon/lib/col"
+src_path+="./app/kon/lib/debug"
+#
+javac ./app/MakeDataset.java
+for dir in $src_path;do
+    for f in $(find $dir -type f | grep .java);do
+        javac $f
+    done
+done
 
 ##############################//
 #dirctories for datasets	#//
@@ -27,7 +45,7 @@ road_shape_path+="./data/datasets/road_shape/13"
 road_shape_path+="./data/datasets/road_shape/14"
 road_shape_path+="./data/datasets/road_shape/21"
 for dir in $road_shape_path;do
-	mkdir dir
+	mkdir $dir
 done
 #2
 #road_linear
@@ -43,7 +61,7 @@ road_linear_path+=road_linear_path[1]+"7"
 road_linear_path+=road_linear_path[1]+"8"
 road_linear_path+=road_linear_path[1]+"9"
 for dir in $road_linear_path;do
-	mkdir dir
+	mkdir $dir
 done
 
 set +x

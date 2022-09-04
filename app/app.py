@@ -6,7 +6,7 @@ from selenium import webdriver
 from keras.utils import np_utils
 from keras.applications.vgg16 import VGG16
 from sklearn.model_selection import train_test_split
-from keras.layers import Input, Activation, merge, Dense, Flatten, Dropout
+from keras.layers import Input, Activation, concatenate, Dense, Flatten, Dropout
 from selenium.webdriver.chrome.options import Options
 from tensorflow.keras.optimizers import Adam
 from keras.models import model_from_json
@@ -48,11 +48,7 @@ with open('../data/bussoxn_zahyou.csv') as f_in:
                 f.write(png)
         driver.quit()
 
-        #sample画像の前処理
-        files = glob.glob('drive/MyDrive/kenkyuu/datasets/road_linear/road_linear_small/3/*')
-        box = []
-        for file in files:
-        img = cv2.imread(file)
+        img = cv2.imread(f)
         img = cv2.resize(img,dsize=(224,224))
         img = img.astype('float32')
         img /= 255.0

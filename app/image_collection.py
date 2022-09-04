@@ -20,7 +20,7 @@ with open('../data/jinshin_zahyou.csv') as f_in:
 
         # set driver and url
         driver = webdriver.Chrome(options=options)
-        url = 'http://localhost:8080/map?x='+coord[0]+'&y='+coord[1]
+        url = 'http://localhost:8090/map?x='+coord[0]+'&y='+coord[1]
 
         # get width and height of the page
         #w = driver.execute_script("return document.body.scrollWidth;")
