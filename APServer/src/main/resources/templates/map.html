@@ -39,7 +39,8 @@
     var y = document.getElementById('y').innerHTML;
     var map = L.map('map').setView([x, y], 18);
 
-	var tiles = L.tileLayer('http://localhost:8080/styles/osm-bright/{z}/{x}/{y}.png', {
+	//var tiles = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    var tiles = L.tileLayer('http://localhost:8080/styles/osm-bright/{z}/{x}/{y}.png', {
 		maxZoom: 19,
 		attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
 	}).addTo(map);

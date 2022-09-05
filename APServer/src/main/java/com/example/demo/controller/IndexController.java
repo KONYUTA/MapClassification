@@ -21,5 +21,13 @@ public class IndexController {
         return "map";
     }
 
+    @GetMapping(value = {"/map_lotate", ""})
+    public String map_lotate(@RequestParam("x") String x, @RequestParam("y") String y, @RequestParam("deg") String deg, Model model){
+        model.addAttribute("x", x);
+        model.addAttribute("y", y);
+        model.addAttribute("deg", deg);
+        return "map_lotate";
+    }
+
 
 }
