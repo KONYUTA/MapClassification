@@ -21,12 +21,13 @@ import cv2
 print('開始しますよ(´・ω・)')
 model = load_model('../data/model/cnn.h5')
 classes = pickle.load(open('classes.sav', 'rb'))
+index=0
 
 with open('../data/jinshin_zahyou.csv') as f_in:
     for line in f_in:
         coord = line.split(',')
         # File Name
-        FILENAME = os.path.join(os.path.dirname(os.path.abspath(__file__)), "../data/tmp.png")
+        FILENAME = os.path.join(os.path.dirname(os.path.abspath(__file__)), "../data/image2/"+str(index)+".png")
 
         #オプションの設定
         options = Options()
@@ -44,7 +45,7 @@ with open('../data/jinshin_zahyou.csv') as f_in:
 
         # Get Screen Shot
         png = driver.find_element_by_id('map').screenshot_as_png
-        with open('../data/tmp.png', 'wb') as f:
+        with open('../data/image2/'+str(index)+'.png', 'wb') as f:
                 f.write(png)
         driver.quit()
 
@@ -62,4 +63,5 @@ with open('../data/jinshin_zahyou.csv') as f_in:
         #確率が一番大きいクラス
         pred = result.argmax()
         print(pred)
+        index+=1
 print('(´・ω・)(´・ω・)(´・ω・)(´・ω・)\n終わりますよ(´・ω・)')

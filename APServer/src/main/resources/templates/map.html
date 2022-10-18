@@ -13,8 +13,8 @@
 			margin: 0;
 		}
 		.leaflet-container {
-			height: 400px;
-			width: 400px;
+			height: 100px;
+			width: 100px;
 		}
         .leaflet-right {
             right: 0;
@@ -30,7 +30,7 @@
     リクエストの例は以下の通り。クエリ部分にx座標とy座標を指定
     http://localhost:8080/map?x=36.704558&y=137.096484&zoom=18
 </div> -->
-<div id="map" style="width: 400px; height: 400px;"></div>
+<div id="map" style="width: 90px; height: 90px;"></div>
 <div>x座標: <strong id="x" th:text="${x}"></strong></div>
 <div>y座標: <strong id="y" th:text="${y}"></strong></div>
 
@@ -39,8 +39,7 @@
     var y = document.getElementById('y').innerHTML;
     var map = L.map('map').setView([x, y], 18);
 
-	//var tiles = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    var tiles = L.tileLayer('http://localhost:8080/styles/osm-bright/{z}/{x}/{y}.png', {
+	var tiles = L.tileLayer('http://localhost:8080/styles/klokantech-basic/{z}/{x}/{y}.png', {
 		maxZoom: 19,
 	}).addTo(map);
 	// Mapサーバ未実装の場合は外部サーバ（負荷を考慮すること）

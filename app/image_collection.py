@@ -30,19 +30,7 @@ with open('../data/jinshin_zahyou.csv') as f_in:
         # set window size
         driver.set_window_size(900,900)
         driver.get(url)
-#        time.sleep(3)
-        print('　　　　　　　　　　　　　　　　　ﾉ')
-        time.sleep(0.5)
-        print('　　　　　　　　　　彡　ノ')
-        time.sleep(0.5)
-        print('　　　　　　　　ノ')
-        time.sleep(0.5)
-        print('　　　　　ﾉノ　　　ミ')
-        time.sleep(0.5)
-        print('　　　〆⌒ ヽ彡')
-        time.sleep(0.5)
-        print('　　　(´・ω・`)')
-        time.sleep(0.5)
+        time.sleep(1)
 
         # Get Screen Shot
         png = driver.find_element_by_id('map').screenshot_as_png
@@ -50,6 +38,6 @@ with open('../data/jinshin_zahyou.csv') as f_in:
                 f.write(png)
 
         driver.quit()
-        print(str(index)+'番目の地点周辺マップを保存しましたよ(´・ω・)')
+        print(str(index)+'番目の地点周辺マップを保存しましたよ(´・ω・)',end="\r")
         index+=1
 print('(´・ω・)(´･ω･`)(´・ω・)(´・ω・)\n終わりますよ(´・ω・)')

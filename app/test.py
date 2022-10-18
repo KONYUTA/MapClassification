@@ -1,5 +1,4 @@
 import time
-from Screenshot import Screenshot_Clipping
 
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
