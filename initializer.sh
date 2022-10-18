@@ -1,20 +1,30 @@
 #/bin/zsh
-set -e
+
+echo '色々と準備をします。時間がかかるのでその間に羊羹でもどうぞ。'
 set -x
 
 mkdir ./data/image
 mkdir ./data/model
+mkdir ./data/datasets
+mkdir ./data/image/converted
 mkdir ./MAPServer
+touch ./data/binarization.sh
+echo '#!/bin/zsh\nfind image | while read png;do\n\tconvert -threshold 90% ${png} converted/${png}\ndone' > ./data/binarization.sh
 
 ##############################//
 #target installation for app#//
 ############################//
-pip install selenium==3.141.0
-pip install chromedriver-binary==104.0.5112.79.0
+set -e
+# 「pip3」の部分はPythonとpipの紐付けに応じて書き換えてください。
+# chromedriver-binaryのバージョンはChromeのバージョンに応じて一番近いやつを入れてください。
+#
+pip3 install selenium==3.141.0
+pip3 install chromedriver-binary==104.0.5112.79.0
 pip3 install --upgrade pip
 pip3 install opencv-python
 pip3 install scikit-learn
 pip3 install tensorflow
+pip3 install natsort
 
 ##############################//
 #compile java app#//
@@ -33,7 +43,6 @@ done
 ##############################//
 #dirctories for datasets	#//
 ############################//
-mkdir data/datasets
 #1. road_shape
 road_shape_path[1]="./data/datasets/road_shape"
 road_shape_path+="./data/datasets/road_shape/0"

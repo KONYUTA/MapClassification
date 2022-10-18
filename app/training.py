@@ -51,11 +51,9 @@ print(Y_test.shape)#テストデータ(2割)
 
 #vgg16
 input_tensor = Input(shape=(224,224,3))
-#最後の1000の層を省く
 base_model = VGG16(weights='imagenet', input_tensor=input_tensor,include_top=False)
 
 
-#後付けで入れたい層の作成
 top_model = Sequential()
 top_model.add(Flatten(input_shape=base_model.output_shape[1:]))
 top_model.add(Dense(n_classes, activation='softmax'))
@@ -64,7 +62,7 @@ model = Model(inputs=base_model.input, outputs=top_model(base_model.output))
 model.compile(loss='categorical_crossentropy',optimizer='adam',metrics=['accuracy'])
 
 #学習と評価
-model.fit(X_train, Y_train, epochs=20, batch_size=16)
+model.fit(X_train, Y_train, epochs=10, batch_size=16)
 score = model.evaluate(X_test, Y_test, batch_size=16)
 
 #クラス名の保存

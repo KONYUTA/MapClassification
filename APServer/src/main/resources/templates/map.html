@@ -42,7 +42,6 @@
 	//var tiles = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     var tiles = L.tileLayer('http://localhost:8080/styles/osm-bright/{z}/{x}/{y}.png', {
 		maxZoom: 19,
-		attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
 	}).addTo(map);
 	// Mapサーバ未実装の場合は外部サーバ（負荷を考慮すること）
 	// var tiles = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
