@@ -27,7 +27,7 @@ pip3 install tensorflow
 pip3 install natsort
 
 ##############################//
-#compile java app#//
+#compile java app           #//
 ############################//
 src_path[1]="./app/kon/lib/coord"
 src_path+="./app/kon/lib/col"
@@ -59,19 +59,19 @@ done
 #2
 #road_linear
 road_linear_path[1]="./data/datasets/road_shape"
-road_linear_path+=road_linear_path[1]+"0"
-road_linear_path+=road_linear_path[1]+"1"
-road_linear_path+=road_linear_path[1]+"2"
-road_linear_path+=road_linear_path[1]+"3"
-road_linear_path+=road_linear_path[1]+"4"
-road_linear_path+=road_linear_path[1]+"5"
-road_linear_path+=road_linear_path[1]+"6"
-road_linear_path+=road_linear_path[1]+"7"
-road_linear_path+=road_linear_path[1]+"8"
-road_linear_path+=road_linear_path[1]+"9"
+road_linear_path+=${road_linear_path[1]}"/0"
+road_linear_path+=${road_linear_path[1]}"/1"
+road_linear_path+=${road_linear_path[1]}"/2"
+road_linear_path+=${road_linear_path[1]}"/3"
+road_linear_path+=${road_linear_path[1]}"/4"
+road_linear_path+=${road_linear_path[1]}"/5"
+road_linear_path+=${road_linear_path[1]}"/6"
+road_linear_path+=${road_linear_path[1]}"/7"
+road_linear_path+=${road_linear_path[1]}"/8"
+road_linear_path+=${road_linear_path[1]}"/9"
 for dir in $road_linear_path;do
 	mkdir $dir
 done
 
 set +x
-echo 'done(´・ω・)!!'
+echo '無事に完了しましたよ(´･ω･`)'
